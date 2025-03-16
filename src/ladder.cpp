@@ -4,7 +4,7 @@ void error(string word1, string word2, string msg){
     cout << "Problem with " << word1 << " and " << word2 << " because " << msg;
 }
 bool edit_distance_within(const std::string& str1, const std::string& str2, int d){
-    if(str1 == str2) return false;
+    if(str1 == str2) return true;
     int len1 = str1.size();
     int len2 = str2.size();
 
