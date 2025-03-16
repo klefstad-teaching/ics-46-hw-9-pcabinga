@@ -1,4 +1,5 @@
 #include "ladder.h"
+
 void error(string word1, string word2, string msg){
     cout << "Problem with " << word1 << " and " << word2 << " because " << msg;
 }
@@ -44,7 +45,7 @@ vector<string> generate_word_ladder(const string& begin_word, const string& end_
 
         string last_word = ladder.back();
         for(auto word : word_list){
-            if is_adjacent(last_word,word){
+            if (is_adjacent(last_word,word)){
                 if(visited.find(word) == visited.end()){
                     visited.insert(word);
                     vector<string> new_ladder = ladder;
