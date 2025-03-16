@@ -15,6 +15,7 @@ bool edit_distance_within(const std::string& str1, const std::string& str2, int 
     while(i < len1 && j < len2){
         if(str1[i] != str2[j]){ 
             ++count;
+            if(count > d) return false; 
      
 
             if(len1 > len2) ++i;
@@ -28,7 +29,7 @@ bool edit_distance_within(const std::string& str1, const std::string& str2, int 
         ++j;
 
     }
-    count += abs(len1 - len2);
+    count += (len1 - i) + (len2 - j);
     return count <= d;
 }
 bool is_adjacent(const string& word1, const string& word2){
@@ -69,7 +70,7 @@ void load_words(set<string> & word_list, const string& file_name){
     ifstream in(file_name);
     string word;
 
-    while(file>>word){
+    while(in>>word){
         word_list.insert(word);
     }
 
