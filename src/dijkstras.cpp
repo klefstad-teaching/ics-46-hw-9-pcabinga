@@ -36,13 +36,13 @@ vector<int> extract_shortest_path(const vector<int>& distances, const vector<int
     return path;
 }
 void print_path(const vector<int>& v, int total){
-        if (path.empty()) {
+        if (v.empty()) {
         cout << "No path found" << endl;
         return;
     }
     cout << "Shortest path (distance = " << total << "): ";
-    for (int v : path) {
-        cout << v << " ";
+    for (int vert : v) {
+        cout << vert << " ";
     }
     cout << endl;
 }

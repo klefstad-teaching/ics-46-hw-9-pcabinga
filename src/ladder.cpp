@@ -4,7 +4,7 @@ void error(string word1, string word2, string msg){
     cout << "Problem with " << word1 << " and " << word2 << " because " << msg;
 }
 bool edit_distance_within(const std::string& str1, const std::string& str2, int d){
-    if(str1 == str2) return false;
+
     int len1 = str1.size();
     int len2 = str2.size();
 
@@ -32,7 +32,7 @@ bool edit_distance_within(const std::string& str1, const std::string& str2, int 
 
     }
     count += (len1 - i) + (len2 - j);
-    return count == d;
+    return count <= d;
 }
 bool is_adjacent(const string& word1, const string& word2){
     return edit_distance_within(word1, word2, 1);
