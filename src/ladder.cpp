@@ -74,7 +74,7 @@ void load_words(set<string> & word_list, const string& file_name){
         word_list.insert(word);
     }
 
-    file.close(); 
+    in.close(); 
 
 }
 void print_word_ladder(const vector<string>& ladder){
