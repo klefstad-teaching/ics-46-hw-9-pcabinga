@@ -21,15 +21,17 @@ bool edit_distance_within(const std::string& str1, const std::string& str2, int 
             if(len1 > len2) ++i;
             else if(len2 > len1) ++j;
             else{
-
+                ++i;
+                ++j;
             }
+        } else{
+            ++i;
+            ++j;
         }
-        ++i;
-        ++j;
 
     }
     count += (len1 - i) + (len2 - j);
-    return count <= d;
+    return count == d;
 }
 bool is_adjacent(const string& word1, const string& word2){
     return edit_distance_within(word1, word2, 1);
@@ -42,7 +44,7 @@ vector<string> generate_word_ladder(const string& begin_word, const string& end_
     ladder_queue.push({begin_word});
     set<string> visited;
     visited.insert(begin_word);
-    
+
     while(!ladder_queue.empty()){
         vector<string> ladder = ladder_queue.front();
         ladder_queue.pop();
